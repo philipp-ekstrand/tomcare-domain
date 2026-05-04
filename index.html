@@ -129,6 +129,11 @@
     border-color: #fca5a5;
   }
 
+  .card.good {
+    background: var(--good-soft);
+    border-color: #86efac;
+  }
+
   .card-title {
     font-weight: 700;
     font-size: 17px;
@@ -173,7 +178,8 @@
     margin-bottom: 4px;
   }
 
-  .context-banner p { margin: 0; color: var(--ink); }
+  .context-banner p { margin: 0 0 8px; color: var(--ink); }
+  .context-banner p:last-child { margin: 0; }
 
   table {
     width: 100%;
@@ -217,25 +223,6 @@
   }
 
   ol li, ul li { margin-bottom: 6px; }
-
-  .quote {
-    background: #fafaf9;
-    border-left: 3px solid var(--accent);
-    border-radius: 0 8px 8px 0;
-    padding: 16px 20px;
-    margin: 16px 0;
-    font-size: 15px;
-    color: var(--ink-soft);
-    font-style: normal;
-  }
-
-  .quote .subj {
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 6px;
-    display: block;
-    font-style: normal;
-  }
 
   .options {
     display: grid;
@@ -367,6 +354,172 @@
 
   .insight p { margin: 0; color: var(--ink); }
 
+  .domain-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 16px 0;
+  }
+
+  .domain-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .domain-row.top {
+    border-color: #86efac;
+    background: #f0fdf4;
+  }
+
+  .domain-name {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .domain-comment {
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin: 0;
+  }
+
+  .domain-rank {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    align-self: start;
+  }
+
+  .rank-top { background: #16a34a; color: white; }
+  .rank-mid { background: #f1f5f9; color: #475569; }
+
+  /* Mail Box mit Copy-Button */
+  .mailbox {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 16px 0 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .mailbox-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: #f5f5f4;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .copy-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .copy-btn:hover { background: #1e40af; }
+  .copy-btn.copied { background: var(--good); }
+
+  .mailbox-body {
+    padding: 20px 24px;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.7;
+    white-space: pre-wrap;
+  }
+
+  .mailbox-body .field {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .mailbox-body .field-label {
+    font-weight: 700;
+    color: var(--ink-mute);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-right: 8px;
+  }
+
+  .recipient-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 16px;
+  }
+
+  .recipient-pill {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid #bfdbfe;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .copy-recipients {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .copy-recipients .label {
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 600;
+  }
+
+  .copy-recipients code {
+    flex: 1;
+    min-width: 200px;
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--ink);
+    background: #fafaf9;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
   footer {
     margin-top: 64px;
     padding-top: 24px;
@@ -382,12 +535,14 @@
     .card, .opt, .next-steps, .recommendation { padding: 20px; }
     table { font-size: 14px; }
     th, td { padding: 10px 12px; }
+    .domain-row { grid-template-columns: 1fr; }
   }
 
   @media print {
     body { background: white; }
     .recommendation { background: #1d4ed8 !important; -webkit-print-color-adjust: exact; }
     .card, .opt, table, .next-steps { box-shadow: none; break-inside: avoid; }
+    .copy-btn { display: none; }
   }
 </style>
 </head>
@@ -398,12 +553,13 @@
 <header class="doc-head">
   <div class="doc-meta">Recherche · Domain-Strategie</div>
   <h1>Tomcare: Welche Domain kaufen?</h1>
-  <p class="doc-sub">Analyse von <strong>tomcare.de</strong>, <strong>tom-care.de</strong>, <strong>tomcare.com</strong> und freien Alternativen, mit Empfehlung und konkretem Vorgehen.</p>
+  <p class="doc-sub">Analyse aller relevanten Optionen für ein <strong>Pflegeunternehmen</strong>: tomcare.de, tom-care.de, Pflege-Keyword-Domains und freie Brand-Varianten. Mit Mail-Vorlage zum direkten Versenden.</p>
 </header>
 
 <div class="context-banner">
-  <div class="label">Kontext-Update</div>
-  <p>Tomcare ist ein <strong>Pflegeunternehmen</strong> (Alterspflege), vergleichbar mit <a href="https://aiutanda.de/de/" target="_blank" rel="noopener">Aiutanda</a>. Das ändert die Domain-Strategie deutlich: Pflege ist ein Trust-Geschäft mit regionalem oder nationalem Fokus, lokales SEO und Empfehlungen dominieren, Direct-Type-In-Traffic ist marginal. Das senkt den ROI einer teuren Premium-Domain spürbar und verschiebt die Prioritäten.</p>
+  <div class="label">Kontext</div>
+  <p>Tomcare ist ein <strong>Pflegeunternehmen</strong> (Alterspflege), vergleichbar mit <a href="https://aiutanda.de/de/" target="_blank" rel="noopener">Aiutanda</a>. Pflege ist ein Trust-Geschäft mit regionalem oder nationalem Fokus. Hauptkanäle: lokales SEO, Empfehlungen von Hausärzten und Krankenhäusern, Krankenkassen-Listings.</p>
+  <p><strong>Konsequenz:</strong> Eine teure Premium-Domain wie tomcare.de hat begrenzten ROI. Pflege-Keyword-Domains (z.B. tomcare-pflegedienst.de) sind in der Branche Standard, kommunizieren sofort was angeboten wird und bieten kleine SEO-Vorteile bei generischen Lokalsuchen.</p>
 </div>
 
 <h2>Ergebnis auf einen Blick</h2>
@@ -411,159 +567,205 @@
 <table>
   <thead>
     <tr>
-      <th>Domain</th>
+      <th>Option</th>
       <th>Status</th>
-      <th>Preis &amp; Bewertung</th>
+      <th>Kosten &amp; Bewertung</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>tomcare-pflegedienst.de<br>tomcare-pflege.de</td>
+      <td><span class="badge badge-good">FREI</span></td>
+      <td class="price"><strong>10 bis 15 EUR pro Jahr.</strong> Branchen-Standard, klar, vertrauenswürdig, SEO-Vorteil. Empfehlung: Sofort registrieren.</td>
+    </tr>
+    <tr>
       <td>tomcare.de</td>
       <td><span class="badge badge-good">Verkauf bei Sedo</span></td>
-      <td class="price">7.995 EUR Festpreis, verhandelbar auf <strong>2.500 bis 3.500 EUR</strong>. Für Pflegedienst nur sinnvoll, wenn Wachstum klar national geplant ist.</td>
+      <td class="price">7.995 EUR Festpreis, verhandelbar auf <strong>2.500 bis 3.500 EUR</strong>. Premium-Variante, nur sinnvoll wenn nationale Marke geplant.</td>
     </tr>
     <tr>
       <td>tom-care.de</td>
       <td><span class="badge badge-warn">Frisch in Eigennutzung</span></td>
-      <td class="price">Bindestrich akzeptabel im Pflege-Kontext. Lohnt sich anzufragen, kostet nichts. Realistischer Preis bei Verkauf: 500 bis 1.500 EUR.</td>
+      <td class="price">Anfrage kostet nichts. Realistischer Verkaufspreis: 500 bis 1.500 EUR, falls Inhaber überhaupt verkaufsbereit.</td>
     </tr>
     <tr>
       <td>tomcare.com</td>
       <td><span class="badge badge-bad">Irrelevant</span></td>
-      <td class="price">Für regionalen oder deutschen Pflegedienst <strong>nicht relevant</strong>. Spart ggf. 5-stelligen Betrag.</td>
-    </tr>
-    <tr>
-      <td>mytomcare.de / hellotomcare.de / getomcare.de</td>
-      <td><span class="badge badge-good">Frei</span></td>
-      <td class="price">~10 bis 15 EUR pro Jahr. Für Pflegedienst akzeptabel, weil Hauptkanäle Empfehlung &amp; lokales SEO sind.</td>
+      <td class="price">Für deutschen Pflegedienst <strong>nicht relevant</strong>. Spart 5-stelligen Betrag.</td>
     </tr>
   </tbody>
 </table>
 
 <div class="recommendation">
   <div class="label">Klare Empfehlung</div>
-  <h3>Erst DPMA-Markenrecherche, dann tom-care.de anfragen, parallel tomcare.de auf 3.000 EUR runterhandeln</h3>
-  <p>Bei Pflege ist die Markenrecherche der erste Schritt, weil viele kleine und mittelständische Pflegedienste eingetragene Wortmarken haben. Wenn "Tomcare" oder "Tom Care" geschützt ist, müssen wir vor Domain-Kauf umbenennen.</p>
-  <p>Wenn die Marke frei ist: tom-care.de ist die unterschätzte Option (frischer Inhaber, kein laufendes Geschäft, niedrige Erwartung), tomcare.de das harte Ziel mit harter Preisgrenze bei <strong>3.500 EUR</strong>. Über 4.000 EUR lohnt sich die Domain für einen regionalen Pflegedienst nicht.</p>
+  <h3>tomcare-pflegedienst.de für 15 EUR registrieren, parallel DPMA-Markenrecherche starten und tom-care.de anfragen</h3>
+  <p>Bei einem Pflegedienst ist eine Pflege-Keyword-Domain die pragmatischste Lösung: günstig, klar, branchen-üblich, SEO-Vorteil bei Suchen wie "Pflegedienst [Stadt]". Aiutanda hat erfolgreich vorgemacht, dass eine starke Brand auch ohne Premium-Domain funktioniert, aber in der Pflege ist eine Keyword-Domain nochmal eine Schippe seriöser und klarer.</p>
+  <p><strong>tomcare.de</strong> wäre die Premium-Variante, aber nur wenn das Briefing eine nationale Marke mit Werbe-Budget bestätigt. Hartes Limit: <strong>3.500 EUR</strong>.</p>
 </div>
 
-<h2>Was sich durch den Pflege-Kontext ändert</h2>
+<h2>Pflege-Keyword-Domains (Top-Empfehlung)</h2>
+
+<p>Alle folgenden Domains sind aktuell <strong>frei</strong> und kosten 10 bis 15 EUR pro Jahr. Sortiert nach Eignung für ein Pflegeunternehmen:</p>
+
+<div class="domain-list">
+
+  <div class="domain-row top">
+    <div>
+      <div class="domain-name">tomcare-pflegedienst.de</div>
+      <p class="domain-comment">Branchen-Standard. Klar, seriös, vermittelt sofort was angeboten wird. Erste Wahl, wenn Pflegedienst der Schwerpunkt ist.</p>
+    </div>
+    <span class="domain-rank rank-top">Top 1</span>
+  </div>
+
+  <div class="domain-row top">
+    <div>
+      <div class="domain-name">tomcare-pflege.de</div>
+      <p class="domain-comment">Kürzer und etwas moderner. Funktioniert für ambulante und stationäre Pflege gleichermaßen. Bei mündlicher Kommunikation einfacher.</p>
+    </div>
+    <span class="domain-rank rank-top">Top 2</span>
+  </div>
+
+  <div class="domain-row top">
+    <div>
+      <div class="domain-name">pflegedienst-tomcare.de</div>
+      <p class="domain-comment">Keyword vorne. Kann minimal besser ranken bei generischen Lokalsuchen. Als Brand-Domain etwas weniger elegant.</p>
+    </div>
+    <span class="domain-rank rank-top">Top 3</span>
+  </div>
+
+  <div class="domain-row">
+    <div>
+      <div class="domain-name">tomcare-ambulant.de</div>
+      <p class="domain-comment">Nur sinnvoll wenn ambulante Pflege der explizite Service ist. Klarer Fokus, schränkt aber die Marke ein.</p>
+    </div>
+    <span class="domain-rank rank-mid">Service-spezifisch</span>
+  </div>
+
+  <div class="domain-row">
+    <div>
+      <div class="domain-name">tomcare24.de</div>
+      <p class="domain-comment">Wenn 24-Stunden-Pflege oder Live-In-Pflege ein Service-Schwerpunkt ist. Einprägsam, oft im Pflegemarkt verwendet.</p>
+    </div>
+    <span class="domain-rank rank-mid">Service-spezifisch</span>
+  </div>
+
+  <div class="domain-row">
+    <div>
+      <div class="domain-name">tomcare-altenpflege.de</div>
+      <p class="domain-comment">Wenn Altenpflege explizit der Markt ist. SEO-stark für "Altenpflege [Region]", aber engt die Brand ein.</p>
+    </div>
+    <span class="domain-rank rank-mid">Markt-spezifisch</span>
+  </div>
+
+  <div class="domain-row">
+    <div>
+      <div class="domain-name">tomcare-seniorenpflege.de</div>
+      <p class="domain-comment">Ähnlich wie Altenpflege, weicheres Wording. Wirkt einladender für Angehörige.</p>
+    </div>
+    <span class="domain-rank rank-mid">Markt-spezifisch</span>
+  </div>
+
+  <div class="domain-row">
+    <div>
+      <div class="domain-name">tomcare-zuhause.de</div>
+      <p class="domain-comment">Für ambulante Pflege oder Pflege zu Hause. Emotional warmer Begriff, gut für Angehörigen-Ansprache.</p>
+    </div>
+    <span class="domain-rank rank-mid">Emotional</span>
+  </div>
+
+</div>
 
 <div class="insight">
-  <div class="label">Wichtiger Schluss</div>
-  <p>Eine Pflege-Brand verdient ihren Traffic über lokales SEO ("Pflegedienst München", "ambulante Pflege Region X"), Krankenkassen-Listings, Empfehlungen von Hausärzten und Krankenhäusern. Die Domain selbst muss <strong>seriös, vertrauenswürdig und einprägsam</strong> sein, aber sie muss nicht das Premium-Generic der Branche sein. Aiutanda hat das vorgemacht: ein eigenständiger Brand-Name mit Bedeutung schlägt eine teure Generic-Domain.</p>
+  <div class="label">Ehrlich zum SEO-Vorteil</div>
+  <p>Exact-Match-Domains haben seit Googles EMD-Update 2012 deutlich weniger Ranking-Boost als früher. Der echte Vorteil von Pflege-Keyword-Domains liegt heute weniger im Algorithmus, sondern in <strong>Klarheit, Trust und User-Verhalten</strong>: Angehörige sehen sofort dass es um Pflege geht, klicken eher, bleiben länger. Bei Lokalsuchen wie "Pflegedienst München" gibt es noch einen Rest-Vorteil, aber stärker wirken Google-My-Business-Eintrag, lokale Backlinks und Bewertungen.</p>
 </div>
-
-<ul>
-  <li><strong>tomcare.com fällt komplett raus.</strong> International irrelevant für deutschen Pflegemarkt. Spart die 5-stellige Broker-Verhandlung.</li>
-  <li><strong>tomcare.de wird abgewertet.</strong> 4.500 bis 5.500 EUR sind für einen Pflegedienst zu viel. Hartes Limit jetzt: <strong>3.500 EUR</strong>. Darüber lohnt sich der Aufpreis gegenüber freier Alternative nicht.</li>
-  <li><strong>tom-care.de wird aufgewertet.</strong> Bindestrich ist im Pflegebereich kein No-Go (ältere Zielgruppe, primär über Suche und Empfehlung). Frischer Inhaber ohne laufendes Geschäft = niedrige Verhandlungs-Erwartung.</li>
-  <li><strong>DPMA-Markenrecherche wird Priorität 1.</strong> Pflege hat viele eingetragene Marken auch von kleinen Anbietern. Verwechslungsgefahr ist regulatorisch ein Thema. Vor jedem Domain-Kauf zwingend prüfen.</li>
-  <li><strong>Trust-Faktor zählt mehr als Premium.</strong> Eine ruhige, klare Domain reicht. Keine Hipster-TLDs (.app, .io, .care). Ältere Angehörige als Entscheider erwarten .de.</li>
-</ul>
 
 <h2>tomcare.de im Detail</h2>
 
 <div class="card">
   <p class="card-title">Aktiv zum Verkauf bei Sedo <span class="badge badge-good">verfügbar</span></p>
-  <p>Wer tomcare.de aufruft, landet auf einer Sedo-Verkaufsseite. Der Sofortkauf-Preis liegt bei <strong>7.995 EUR</strong>. Der Button "Preisvorschlag machen" ist freigeschaltet, das heißt der Inhaber ist verhandlungsbereit.</p>
-  <p>Erfahrungswert für Sedo-Verhandlungen bei generischen Zwei-Wort-Domains: realer Verkaufspreis 50 bis 70 Prozent des Festpreises. Realistisch wären <strong>4.000 bis 5.500 EUR</strong>. Für einen regionalen oder mittelständischen Pflegedienst ist das aber teuer im Verhältnis zum erwartbaren Direct-Traffic-Effekt.</p>
+  <p>Wer tomcare.de aufruft, landet auf einer Sedo-Verkaufsseite. Sofortkauf-Preis: <strong>7.995 EUR</strong>. Der Button "Preisvorschlag machen" ist freigeschaltet, also Verhandlung möglich.</p>
+  <p>Erfahrungswert für Sedo-Verhandlungen bei generischen Zwei-Wort-Domains: realer Verkaufspreis 50 bis 70 Prozent des Festpreises, also <strong>4.000 bis 5.500 EUR</strong>. Im Pflege-Kontext aber teuer, weil der Direct-Brand-Traffic den Aufpreis nicht rechtfertigt.</p>
 </div>
 
 <h3>Verhandlungs-Strategie für Sedo (Pflege-Version)</h3>
 <ol>
-  <li>Erstes Angebot: <strong>1.500 EUR</strong>. Begründung: "Generische Domain, Aufbau einer regionalen Pflege-Marke ohne Werbe-Budget für Direct-Brand-Traffic, ROI begrenzt."</li>
+  <li>Erstes Angebot: <strong>1.500 EUR</strong>. Begründung: regionale Pflege-Marke ohne nationales Werbe-Budget.</li>
   <li>Erwartete Antwort: 6.500 bis 7.000 EUR Gegenforderung.</li>
-  <li>Nachschlag: <strong>2.500 EUR</strong>. Verhandlung läuft eine bis zwei Wochen.</li>
-  <li>Maximales Angebot: <strong>3.000 EUR</strong>. Pause.</li>
-  <li>Hartes Limit: <strong>3.500 EUR</strong>. Darüber lohnt sich die Domain nicht im Vergleich zur freien Alternative für einen Pflegedienst.</li>
+  <li>Nachschlag: <strong>2.500 EUR</strong>. Verhandlung 1 bis 2 Wochen.</li>
+  <li>Maximales Angebot: <strong>3.000 EUR</strong>, dann Pause.</li>
+  <li>Hartes Limit: <strong>3.500 EUR</strong>. Darüber lohnt sich der Aufpreis gegenüber tomcare-pflegedienst.de nicht.</li>
 </ol>
 
 <h2>tom-care.de im Detail</h2>
 
 <div class="card warn">
   <p class="card-title">Frisch aufgesetzte WordPress-Installation <span class="badge badge-warn">unklar</span></p>
-  <p>Die Seite zeigt nur Default-WordPress: "Hallo Welt!"-Beispielbeitrag, "Beispiel-Seite", Archiv von April 2026. Der Inhaber hat die Installation <strong>vor wenigen Wochen</strong> aufgesetzt, aber noch keine Inhalte gepflegt. Kein Impressum, kein Datenschutz, kein laufendes Geschäft.</p>
-  <p>Hosting läuft bei <strong>Mittwald</strong> (agenturserver.de), Mailserver ebenfalls. Das Divi-Theme wurde installiert, was eine kostenpflichtige Lizenz ist. Das spricht dafür, dass jemand selbst aktiv etwas aufbauen will, aber noch ganz am Anfang steht.</p>
-  <p><strong>DENIC veröffentlicht seit 2018 keine Whois-Inhaberdaten</strong> mehr für .de-Domains. Direkter Lookup des Eigentümers nicht möglich.</p>
+  <p>Default-WordPress: "Hallo Welt!"-Beispielbeitrag, "Beispiel-Seite", Archiv April 2026. Der Inhaber hat <strong>vor wenigen Wochen</strong> aufgesetzt, aber keine Inhalte gepflegt. Kein Impressum, kein laufendes Geschäft, aber kostenpflichtige Divi-Theme-Lizenz im Einsatz.</p>
+  <p>Hosting bei Mittwald (agenturserver.de), Mailserver ebenfalls. <strong>DENIC veröffentlicht seit 2018 keine Whois-Inhaberdaten</strong> mehr für .de-Domains. Direkter Lookup unmöglich.</p>
 </div>
 
-<div class="insight">
-  <div class="label">Warum tom-care.de für Pflege interessanter ist als gedacht</div>
-  <p>Im Pflege-Kontext ist der Bindestrich kein Branding-Schaden. Ältere Zielgruppe und Angehörige finden Pflegedienste zu 90 Prozent über Google-Suche, Empfehlungen oder Krankenkassen-Listings, nicht über Direct-Type-In. Wenn der Inhaber bei "500 bis 1.500 EUR" verkauft, ist das deutlich günstiger als tomcare.de und ausreichend für die Brand. Eine Mail-Anfrage kostet nichts.</p>
+<h2>Mail an den tom-care.de-Inhaber</h2>
+
+<p>Da DENIC keine Inhaberdaten mehr herausgibt, ist der direkte Mail-Versand an Standard-Postfächer der pragmatischste Weg. Mittwald nimmt diese in der Regel entgegen.</p>
+
+<h3>Empfänger-Adressen</h3>
+
+<p>An <strong>alle gleichzeitig</strong> verschicken (BCC oder einzeln). Eine wird ankommen.</p>
+
+<div class="recipient-list">
+  <span class="recipient-pill">info@tom-care.de</span>
+  <span class="recipient-pill">kontakt@tom-care.de</span>
+  <span class="recipient-pill">hallo@tom-care.de</span>
+  <span class="recipient-pill">webmaster@tom-care.de</span>
+  <span class="recipient-pill">post@tom-care.de</span>
+  <span class="recipient-pill">admin@tom-care.de</span>
+  <span class="recipient-pill">service@tom-care.de</span>
 </div>
+
+<div class="copy-recipients">
+  <span class="label">Alle auf einmal:</span>
+  <code id="recipients-text">info@tom-care.de, kontakt@tom-care.de, hallo@tom-care.de, webmaster@tom-care.de, post@tom-care.de, admin@tom-care.de, service@tom-care.de</code>
+  <button class="copy-btn" data-copy-target="recipients-text">Kopieren</button>
+</div>
+
+<h3>Mail-Vorlage</h3>
+
+<div class="mailbox">
+  <div class="mailbox-head">
+    <span>Mail-Vorlage</span>
+    <button class="copy-btn" data-copy-target="mail-content" id="copy-mail-btn">HTML kopieren</button>
+  </div>
+  <div class="mailbox-body" id="mail-content"><span class="field"><span class="field-label">Betreff:</span>Anfrage zur Domain tom-care.de</span>
+
+Guten Tag,
+
+ich bin auf Ihre Domain tom-care.de aufmerksam geworden und hätte Interesse, mit Ihnen über eine mögliche Übernahme zu sprechen, falls Sie offen dafür wären.
+
+Falls Sie die Domain selbst aktiv nutzen oder konkrete Pläne damit haben, ist das natürlich nachvollziehbar und der Fall erledigt sich.
+
+Über eine kurze Rückmeldung freue ich mich.
+
+Beste Grüße
+[Name]</div>
+</div>
+
+<p style="font-size: 14px; color: var(--ink-mute);"><strong>Hinweis:</strong> keine Preisnennung in der ersten Mail. Wer zuerst eine Zahl nennt, verliert. Erst Antwort abwarten, dann Verhandlungs-Spielraum testen mit "wir hätten gerne ein Budget unter 1.000 Euro im Kopf".</p>
 
 <h2>tomcare.com: kein Thema mehr</h2>
 
 <div class="card bad">
   <p class="card-title">Für deutschen Pflegedienst irrelevant <span class="badge badge-bad">streichen</span></p>
-  <p>Die Domain ist seit 2007 bei einem japanischen Domain-Investor (GMO Internet). Sedo bietet nur Broker-Vermittlung an, vermutlich 5-stellige Forderung. <strong>Für ein regionales oder nationales Pflegeunternehmen gibt es keinen Grund, Geld in die .com zu stecken.</strong> Pflegekunden in Deutschland googeln nicht "tomcare.com". Diese Option streichen wir und sparen uns die Diskussion.</p>
+  <p>Seit 2007 bei einem japanischen Domain-Investor (GMO Internet). Sedo bietet nur Broker-Vermittlung, vermutlich 5-stellige Forderung. Pflegekunden in Deutschland googeln nicht "tomcare.com". Diese Option streichen wir.</p>
 </div>
-
-<h2>Freie Alternativen</h2>
-
-<p>Diese .de-Domains sind aktuell frei und kosten 10 bis 15 EUR pro Jahr:</p>
-
-<ul>
-  <li><strong>mytomcare.de</strong> (App-/Service-Anmutung)</li>
-  <li><strong>hellotomcare.de</strong> (modernes Brand-Pattern)</li>
-  <li><strong>getomcare.de</strong> (Call-to-Action im Namen)</li>
-</ul>
-
-<p>Für einen Pflegedienst, dessen Traffic primär aus lokalem SEO und Empfehlungen kommt, sind diese Alternativen funktional ausreichend, sofern die Marke selbst stark ist. Aiutanda ist das Lehrbeispiel: kein Generic, kein Premium-Domain-Investment, aber starke eigenständige Marke mit klarer Bedeutung.</p>
-
-<h2>Drei Wege zum Inhaber von tom-care.de</h2>
-
-<p>Da DENIC keine Inhaberdaten mehr herausgibt, gibt es drei realistische Wege.</p>
-
-<div class="options">
-
-  <div class="opt">
-    <div class="opt-head">
-      <span class="opt-title">Option A: Direkt-Mail an die Domain</span>
-      <span class="opt-cost">kostenlos, sofort</span>
-    </div>
-    <p class="opt-meta">Mittwald nimmt höchstwahrscheinlich Mails an Standard-Postfächer entgegen. Parallel an info@, kontakt@, hallo@ und webmaster@tom-care.de schicken. Keine Preisnennung in der ersten Mail. Antwortzeit 1 bis 7 Tage.</p>
-  </div>
-
-  <div class="opt">
-    <div class="opt-head">
-      <span class="opt-title">Option B: Sedo Broker Service</span>
-      <span class="opt-cost">~69 EUR Setup, 15 % Provision</span>
-    </div>
-    <p class="opt-meta">Sedo recherchiert den Inhaber, kontaktiert anonym, verhandelt. Du bleibst unsichtbar bis zum Deal. Bei 1.000-EUR-Deal etwa 150 EUR Provision plus Setup. Lohnt sich wenn Privatansprache scheitert.</p>
-  </div>
-
-  <div class="opt">
-    <div class="opt-head">
-      <span class="opt-title">Option C: GoDaddy Domain Broker Service</span>
-      <span class="opt-cost">~99 USD Setup, 25 % Provision</span>
-    </div>
-    <p class="opt-meta">Internationaler Broker. Für rein .de eher Sedo. Im Pflege-Szenario eher nicht relevant.</p>
-  </div>
-
-</div>
-
-<h3>Mail-Vorlage für Option A</h3>
-
-<div class="quote">
-  <span class="subj">Betreff: Anfrage zur Domain tom-care.de</span>
-  Guten Tag,<br><br>
-  ich bin auf Ihre Domain tom-care.de aufmerksam geworden und hätte Interesse, mit Ihnen über eine mögliche Übernahme zu sprechen, falls Sie offen dafür wären. Falls Sie die Domain selbst aktiv nutzen oder konkrete Pläne damit haben, ist das natürlich nachvollziehbar und der Fall erledigt sich.<br><br>
-  Über eine kurze Rückmeldung freue ich mich.<br><br>
-  Beste Grüße<br>
-  [Name oder neutraler Absender]
-</div>
-
-<p><strong>Wichtig:</strong> keine Preisnennung in der ersten Mail. Wer zuerst eine Zahl nennt, verliert in der Verhandlung.</p>
 
 <h2>Markenrechtliche Prüfung (Pflicht im Pflegebereich)</h2>
 
 <div class="next-steps">
 <ol>
-  <li><strong>DPMA-Markenrecherche</strong> für "Tomcare" und "Tom Care" als Wortmarke unter <a href="https://register.dpma.de" target="_blank" rel="noopener">register.dpma.de</a>. Klassen 41, 43, 44 sind für Pflegedienstleistungen relevant. Bei Treffer: Domain-Kauf stoppen, Brand neu denken.</li>
-  <li><strong>EUIPO</strong> für EU-weite Marken unter <a href="https://www.euipo.europa.eu" target="_blank" rel="noopener">euipo.europa.eu</a>. Selbe Klassen prüfen.</li>
-  <li><strong>Google-Suche</strong> nach "Tomcare Pflege", "Tom Care Pflegedienst", "Tomcare ambulant". Nicht eingetragene Markenrechte (Benutzungsmarken) entstehen auch ohne Registrierung. Ein bestehender lokaler Pflegedienst kann mit Verwechslungsgefahr klagen.</li>
+  <li><strong>DPMA-Markenrecherche</strong> für "Tomcare" und "Tom Care" als Wortmarke unter <a href="https://register.dpma.de" target="_blank" rel="noopener">register.dpma.de</a>. Klassen 41, 43, 44 sind für Pflegedienstleistungen relevant.</li>
+  <li><strong>EUIPO</strong> für EU-weite Marken unter <a href="https://www.euipo.europa.eu" target="_blank" rel="noopener">euipo.europa.eu</a>.</li>
+  <li><strong>Google-Suche</strong> nach "Tomcare Pflege", "Tom Care Pflegedienst", "Tomcare ambulant". Nicht eingetragene Markenrechte (Benutzungsmarken) entstehen auch ohne Registrierung.</li>
   <li><strong>Handelsregister-Check</strong> für "Tomcare" als Firmenbestandteil unter <a href="https://www.handelsregister.de" target="_blank" rel="noopener">handelsregister.de</a>.</li>
 </ol>
 </div>
@@ -572,19 +774,49 @@
 
 <div class="next-steps">
 <ol>
-  <li><strong>DPMA + EUIPO + Google-Recherche</strong>. Wenn "Tomcare" als Marke eingetragen oder als Pflegedienst aktiv genutzt ist: Diskussion stoppen, Brand neu entwickeln.</li>
-  <li><strong>Mail an tom-care.de schicken</strong> (Vorlage oben). Kostet nichts, läuft im Hintergrund.</li>
+  <li><strong>DPMA + EUIPO + Google + Handelsregister-Recherche</strong>. Wenn "Tomcare" als Marke eingetragen oder aktiv genutzt ist: Diskussion stoppen, Brand neu entwickeln.</li>
+  <li><strong>tomcare-pflegedienst.de und tomcare-pflege.de sofort registrieren</strong> (15 EUR pro Jahr beim Registrar). Damit ist die Marke gesichert, unabhängig vom Ausgang der Premium-Verhandlungen.</li>
+  <li><strong>Mail an tom-care.de schicken</strong> (Vorlage oben, alle Empfänger gleichzeitig). Kostet nichts, läuft im Hintergrund.</li>
   <li><strong>Sedo-Verhandlung für tomcare.de starten</strong>: erstes Angebot 1.500 EUR, hartes Limit 3.500 EUR.</li>
-  <li><strong>Briefing vom Kunden vertiefen</strong>: Region (lokal, regional, deutschlandweit?), Service-Schwerpunkt (ambulant, stationär, 24h-Pflege?), Wettbewerber. Dann finale Entscheidung.</li>
-  <li><strong>Backup-Plan</strong>: Wenn tom-care.de nicht antwortet und tomcare.de zu teuer bleibt, mit dem Kunden besprechen ob mytomcare.de oder hellotomcare.de eine akzeptable Alternative sind, oder ob ein eigenständiger Markenname (Aiutanda-Strategie) der bessere Weg ist.</li>
+  <li><strong>Briefing vom Kunden vertiefen</strong>: Region (lokal, regional, deutschlandweit?), Service-Schwerpunkt (ambulant, stationär, 24h-Pflege?), Wettbewerber, Werbe-Budget. Daraus ergibt sich die finale Domain-Wahl.</li>
 </ol>
 </div>
 
 <footer>
-  Recherche-Stand: 4. Mai 2026. Datenquellen: Sedo, DENIC, IANA-Whois, DNS-Auflösung, Live-Aufruf der Domains. Kontext-Update: Tomcare ist ein Pflegeunternehmen, vergleichbar mit Aiutanda.
+  Recherche-Stand: 4. Mai 2026. Datenquellen: Sedo, DENIC, IANA-Whois, DNS-Auflösung, Live-Aufruf der Domains. Kontext: Tomcare ist ein Pflegeunternehmen, vergleichbar mit Aiutanda.
 </footer>
 
 </div>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const targetId = btn.getAttribute('data-copy-target');
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    let text = target.innerText || target.textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+      const original = btn.textContent;
+      btn.textContent = 'Kopiert!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+      }, 1800);
+    } catch (e) {
+      const range = document.createRange();
+      range.selectNode(target);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      try { document.execCommand('copy'); } catch (err) {}
+      window.getSelection().removeAllRanges();
+      btn.textContent = 'Kopiert!';
+      setTimeout(() => { btn.textContent = btn.getAttribute('data-copy-target') === 'recipients-text' ? 'Kopieren' : 'HTML kopieren'; }, 1800);
+    }
+  });
+});
+</script>
 
 </body>
 </html>
